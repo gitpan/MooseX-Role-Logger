@@ -1,0 +1,51 @@
+---
+abstract: 'Provide logging via Log::Any'
+author:
+  - 'David Golden <dagolden@cpan.org>'
+build_requires:
+  ExtUtils::MakeMaker: 0
+  File::Spec: 0
+  File::Spec::Functions: 0
+  File::Temp: 0
+  IO::Handle: 0
+  IPC::Open3: 0
+  List::Util: 0
+  Log::Any::Test: 0
+  Moo: 0
+  Test::FailWarnings: 0
+  Test::More: 0.96
+  lib: 0
+configure_requires:
+  ExtUtils::MakeMaker: 6.17
+dynamic_config: 0
+generated_by: 'Dist::Zilla version 4.300039, CPAN::Meta::Converter version 2.132661'
+license: apache
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: MooseX-Role-Logger
+no_index:
+  directory:
+    - t
+    - xt
+    - examples
+    - corpus
+  package:
+    - DB
+provides:
+  MooseX::Role::Logger:
+    file: lib/MooseX/Role/Logger.pm
+    version: 0.001
+requires:
+  Log::Any: 0
+  Moo::Role: 0
+  Types::Standard: 0
+  perl: v5.10.0
+  strict: 0
+  warnings: 0
+resources:
+  bugtracker: https://github.com/dagolden/MooseX-Role-Logger/issues
+  homepage: https://github.com/dagolden/MooseX-Role-Logger
+  repository: https://github.com/dagolden/MooseX-Role-Logger.git
+version: 0.001
+x_authority: cpan:DAGOLDEN
