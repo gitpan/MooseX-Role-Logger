@@ -2,7 +2,7 @@ NAME
     MooseX::Role::Logger - Provide logging via Log::Any
 
 VERSION
-    version 0.001
+    version 0.002
 
 SYNOPSIS
     In your modules:
@@ -18,7 +18,7 @@ SYNOPSIS
 
         sub cry {
             my ($self) = @_;
-            $self->logger->info("I'm sad");
+            $self->_logger->info("I'm sad");
         }
 
     In your application:
@@ -44,18 +44,6 @@ DESCRIPTION
 
     This role is based on Moo so it should work with either Moo or Moose
     based classes.
-
-METHODS
-  logger
-    Returns a logging object. See Log::Any for a list of logging methods it
-    accepts.
-
-  _build__logger_category
-    Override to set the category used for logging. Defaults to the class
-    name of the object (which could be a subclass). You can override to lock
-    it to a particular name:
-
-        sub _build__logger_category { __PACKAGE__ }
 
 USAGE
   Testing
@@ -91,6 +79,18 @@ USAGE
         package MyLibrary::Foo;
         use Moo;
         with 'MyLibrary::Role::Logger'
+
+METHODS
+  _logger
+    Returns a logging object. See Log::Any for a list of logging methods it
+    accepts.
+
+  _build__logger_category
+    Override to set the category used for logging. Defaults to the class
+    name of the object (which could be a subclass). You can override to lock
+    it to a particular name:
+
+        sub _build__logger_category { __PACKAGE__ }
 
 SEE ALSO
     Since MooseX::Role::Logger is universal, you have to use it with one of

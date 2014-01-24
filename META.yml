@@ -4,21 +4,18 @@ author:
   - 'David Golden <dagolden@cpan.org>'
 build_requires:
   ExtUtils::MakeMaker: 0
-  File::Spec: 0
   File::Spec::Functions: 0
-  File::Temp: 0
-  IO::Handle: 0
-  IPC::Open3: 0
   List::Util: 0
   Log::Any::Test: 0
   Moo: 0
   Test::FailWarnings: 0
   Test::More: 0.96
   lib: 0
+  version: 0
 configure_requires:
   ExtUtils::MakeMaker: 6.17
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 4.300039, CPAN::Meta::Converter version 2.132661'
+generated_by: 'Dist::Zilla version 5.012, CPAN::Meta::Converter version 2.133380'
 license: apache
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -35,7 +32,7 @@ no_index:
 provides:
   MooseX::Role::Logger:
     file: lib/MooseX/Role/Logger.pm
-    version: 0.001
+    version: 0.002
 requires:
   Log::Any: 0
   Moo::Role: 0
@@ -47,5 +44,5 @@ resources:
   bugtracker: https://github.com/dagolden/MooseX-Role-Logger/issues
   homepage: https://github.com/dagolden/MooseX-Role-Logger
   repository: https://github.com/dagolden/MooseX-Role-Logger.git
-version: 0.001
+version: 0.002
 x_authority: cpan:DAGOLDEN

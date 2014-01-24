@@ -4,21 +4,26 @@ use warnings;
 
 package MooseX::Role::Logger;
 # ABSTRACT: Provide logging via Log::Any
-our $VERSION = '0.001'; # VERSION
+our $VERSION = '0.002'; # VERSION
 
 use Moo::Role;
 use Types::Standard qw/Str/;
 
 use Log::Any ();
 
+# =method _logger
+#
+# Returns a logging object.  See L<Log::Any> for a list of logging methods it accepts.
+#
+# =cut
 
-has logger => (
+has _logger => (
     is       => 'lazy',
     isa      => sub { ref( $_[0] ) =~ /^Log::Any/ }, # XXX too many options
     init_arg => undef,
 );
 
-sub _build_logger {
+sub _build__logger {
     my ($self) = @_;
     return Log::Any->get_logger( category => $self->_logger_category );
 }
@@ -28,6 +33,15 @@ has _logger_category => (
     isa => Str,
 );
 
+# =method _build__logger_category
+#
+# Override to set the category used for logging.  Defaults to the class name of
+# the object (which could be a subclass).  You can override to lock it to a
+# particular name:
+#
+#     sub _build__logger_category { __PACKAGE__ }
+#
+# =cut
 
 sub _build__logger_category { return ref $_[0] }
 
@@ -40,7 +54,7 @@ __END__
 
 =pod
 
-=encoding utf-8
+=encoding UTF-8
 
 =head1 NAME
 
@@ -48,7 +62,7 @@ MooseX::Role::Logger - Provide logging via Log::Any
 
 =head1 VERSION
 
-version 0.001
+version 0.002
 
 =head1 SYNOPSIS
 
@@ -65,7 +79,7 @@ In your modules:
 
     sub cry {
         my ($self) = @_;
-        $self->logger->info("I'm sad");
+        $self->_logger->info("I'm sad");
     }
 
 In your application:
@@ -92,20 +106,6 @@ L<Log::Any::Adapter>.
 
 This role is based on L<Moo> so it should work with either L<Moo> or L<Moose>
 based classes.
-
-=head1 METHODS
-
-=head2 logger
-
-Returns a logging object.  See L<Log::Any> for a list of logging methods it accepts.
-
-=head2 _build__logger_category
-
-Override to set the category used for logging.  Defaults to the class name of
-the object (which could be a subclass).  You can override to lock it to a
-particular name:
-
-    sub _build__logger_category { __PACKAGE__ }
 
 =head1 USAGE
 
@@ -143,6 +143,20 @@ Then in your other classes, use your custom role:
     package MyLibrary::Foo;
     use Moo;
     with 'MyLibrary::Role::Logger'
+
+=head1 METHODS
+
+=head2 _logger
+
+Returns a logging object.  See L<Log::Any> for a list of logging methods it accepts.
+
+=head2 _build__logger_category
+
+Override to set the category used for logging.  Defaults to the class name of
+the object (which could be a subclass).  You can override to lock it to a
+particular name:
+
+    sub _build__logger_category { __PACKAGE__ }
 
 =head1 SEE ALSO
 
