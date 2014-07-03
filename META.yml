@@ -3,23 +3,23 @@ abstract: 'Provide logging via Log::Any'
 author:
   - 'David Golden <dagolden@cpan.org>'
 build_requires:
-  ExtUtils::MakeMaker: 0
-  File::Spec::Functions: 0
-  List::Util: 0
-  Log::Any::Test: 0
-  Moo: 0
-  Test::FailWarnings: 0
-  Test::More: 0.96
-  lib: 0
-  version: 0
+  ExtUtils::MakeMaker: '0'
+  File::Spec::Functions: '0'
+  List::Util: '0'
+  Log::Any::Test: '0'
+  Moo: '0'
+  Test::FailWarnings: '0'
+  Test::More: '0.96'
+  lib: '0'
+  version: '0'
 configure_requires:
-  ExtUtils::MakeMaker: 6.17
+  ExtUtils::MakeMaker: '6.17'
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 5.012, CPAN::Meta::Converter version 2.133380'
+generated_by: 'Dist::Zilla version 5.019, CPAN::Meta::Converter version 2.141170'
 license: apache
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
-  version: 1.4
+  version: '1.4'
 name: MooseX-Role-Logger
 no_index:
   directory:
@@ -32,17 +32,17 @@ no_index:
 provides:
   MooseX::Role::Logger:
     file: lib/MooseX/Role/Logger.pm
-    version: 0.002
+    version: '0.003'
 requires:
-  Log::Any: 0
-  Moo::Role: 0
-  Types::Standard: 0
-  perl: v5.10.0
-  strict: 0
-  warnings: 0
+  Log::Any: '0'
+  Moo::Role: '0'
+  Types::Standard: '0'
+  perl: '5.006'
+  strict: '0'
+  warnings: '0'
 resources:
   bugtracker: https://github.com/dagolden/MooseX-Role-Logger/issues
   homepage: https://github.com/dagolden/MooseX-Role-Logger
   repository: https://github.com/dagolden/MooseX-Role-Logger.git
-version: 0.002
+version: '0.003'
 x_authority: cpan:DAGOLDEN

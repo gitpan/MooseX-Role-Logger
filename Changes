@@ -1,5 +1,11 @@
 Revision history for MooseX-Role-Logger
 
+0.003     2014-07-03 12:38:11-04:00 America/New_York
+
+    [Changed]
+
+    - Drop minimum required perl to 5.006
+
 0.002     2014-01-24 16:50:08-05:00 America/New_York
 
     [Incompatible Change]

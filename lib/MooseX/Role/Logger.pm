@@ -1,21 +1,20 @@
-use v5.10;
 use strict;
 use warnings;
 
 package MooseX::Role::Logger;
 # ABSTRACT: Provide logging via Log::Any
-our $VERSION = '0.002'; # VERSION
+our $VERSION = '0.003'; # VERSION
 
 use Moo::Role;
 use Types::Standard qw/Str/;
 
 use Log::Any ();
 
-# =method _logger
-#
-# Returns a logging object.  See L<Log::Any> for a list of logging methods it accepts.
-#
-# =cut
+#pod =method _logger
+#pod
+#pod Returns a logging object.  See L<Log::Any> for a list of logging methods it accepts.
+#pod
+#pod =cut
 
 has _logger => (
     is       => 'lazy',
@@ -33,15 +32,15 @@ has _logger_category => (
     isa => Str,
 );
 
-# =method _build__logger_category
-#
-# Override to set the category used for logging.  Defaults to the class name of
-# the object (which could be a subclass).  You can override to lock it to a
-# particular name:
-#
-#     sub _build__logger_category { __PACKAGE__ }
-#
-# =cut
+#pod =method _build__logger_category
+#pod
+#pod Override to set the category used for logging.  Defaults to the class name of
+#pod the object (which could be a subclass).  You can override to lock it to a
+#pod particular name:
+#pod
+#pod     sub _build__logger_category { __PACKAGE__ }
+#pod
+#pod =cut
 
 sub _build__logger_category { return ref $_[0] }
 
@@ -62,7 +61,7 @@ MooseX::Role::Logger - Provide logging via Log::Any
 
 =head1 VERSION
 
-version 0.002
+version 0.003
 
 =head1 SYNOPSIS
 
